@@ -37,6 +37,8 @@ from .anymal_b.anymal_b_config import AnymalBRoughCfg, AnymalBRoughCfgPPO
 from .cassie.cassie import Cassie
 from .cassie.cassie_config import CassieRoughCfg, CassieRoughCfgPPO
 from .a1.a1_config import A1RoughCfg, A1RoughCfgPPO
+from .leg_robot_4.leg_robot_4 import LegRobot4
+from.leg_robot_4.leg_robot_4_config import LegRobot4Cfg, LegRobot4CfgPPO
 
 from legged_gym.utils.task_registry import task_registry
 import os
@@ -52,6 +54,8 @@ task_registry.register("anymal_c_flat", Anymal, AnymalCFlatCfg(), AnymalCFlatCfg
 task_registry.register("anymal_b", Anymal, AnymalBRoughCfg(), AnymalBRoughCfgPPO())
 task_registry.register("a1", LeggedRobot, A1RoughCfg(), A1RoughCfgPPO())
 task_registry.register("cassie", Cassie, CassieRoughCfg(), CassieRoughCfgPPO())
+task_registry.register("leg_robot_4", LegRobot4, LegRobot4Cfg(), LegRobot4CfgPPO())
+
 if robot_type.startswith("PF"):
     from .pointfoot.PF.pointfoot import PointFoot
     from legged_gym.envs.pointfoot.mixed_terrain.pointfoot_rough_config import PointFootRoughCfg, PointFootRoughCfgPPO
@@ -68,6 +72,8 @@ elif robot_type.startswith("SF"):
     from legged_gym.envs.pointfoot.mixed_terrain.pointfoot_rough_config import PointFootRoughCfg, PointFootRoughCfgPPO
     from legged_gym.envs.pointfoot.flat.SF.pointfoot_flat_config import PointFootFlatCfg, PointFootFlatCfgPPO
     task_registry.register("pointfoot_flat", PointFoot, PointFootFlatCfg(), PointFootFlatCfgPPO())
+elif robot_type.startswith("leg"):
+    task_registry.register("leg_robot_4", LegRobot4, LegRobot4Cfg(), LegRobot4CfgPPO())
 else:
     print("Error: Unknown robot type", robot_type)
     sys.exit(1)
