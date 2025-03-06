@@ -46,10 +46,10 @@ from legged_gym.envs.base.base_task import BaseTask
 from legged_gym.utils.terrain import Terrain
 from legged_gym.utils.math import quat_apply_yaw, wrap_to_pi, torch_rand_sqrt_float
 from legged_gym.utils.helpers import class_to_dict
-from .leg_robot_4_config import LegRobot4Cfg
+from .leg_robot_5_config import LegRobot5Cfg
 from legged_gym.envs import LeggedRobot
 
-class LegRobot4(LeggedRobot):
+class LegRobot5(LeggedRobot):
     def step(self, actions):
         """ Apply actions, simulate, call self.post_physics_step()
 

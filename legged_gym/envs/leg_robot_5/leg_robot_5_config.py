@@ -1,6 +1,6 @@
 from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobotCfgPPO
 
-class LegRobot4Cfg(LeggedRobotCfg):
+class LegRobot5Cfg(LeggedRobotCfg):
     class env:
         num_envs = 4096
         num_observations = 235
@@ -80,7 +80,7 @@ class LegRobot4Cfg(LeggedRobotCfg):
         decimation = 4
 
     class asset:
-        file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/leg_robot__5/urdf/leg_robot__5.urdf'
+        file = '{LEGGED_GYM_ROOT_DIR}/resources/robots/leg_robot_5/urdf/leg_robot_5.urdf'
         name = "leg_robot__5"  # actor name
         foot_name = "6" # name of the feet bodies, used to index body state and contact force tensors
         penalize_contacts_on = ["left_Link6", "right_Link6","left_Link1", "right_Link1"]
@@ -89,7 +89,7 @@ class LegRobot4Cfg(LeggedRobotCfg):
         collapse_fixed_joints = True
         self_collisions = 0 # 1 to disable, 0 to enable...bitwise filter
         replace_cylinder_with_capsule = True # replace collision cylinders with capsules, leads to faster/more stable simulation
-        flip_visual_attachments = True # Some .obj meshes must be flipped from y-up to z-up
+        flip_visual_attachments = False # Some .obj meshes must be flipped from y-up to z-up
         fix_base_link = True
         disable_gravity = True
 
@@ -123,7 +123,7 @@ class LegRobot4Cfg(LeggedRobotCfg):
             default_buffer_size_multiplier = 5
             contact_collection = 2 # 0: never, 1: last sub-step, 2: all sub-steps (default=2)
 
-class LegRobot4CfgPPO(LeggedRobotCfgPPO):
+class LegRobot5CfgPPO(LeggedRobotCfgPPO):
     class runner:
         policy_class_name = 'ActorCritic'
         algorithm_class_name = 'PPO'
